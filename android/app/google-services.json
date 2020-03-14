@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1019733374960",
+    "firebase_url": "https://locationupdateflutter.firebaseio.com",
+    "project_id": "locationupdateflutter",
+    "storage_bucket": "locationupdateflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1019733374960:android:b707fc85218cc83a758f35",
+        "android_client_info": {
+          "package_name": "com.example.flutterlocationupdate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1019733374960-0ib7064496ess3ugav8l6nb4jb3uabo4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp3Uxvo0jw2xiPbJPK6KdvATtE4TaaG50"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1019733374960-0ib7064496ess3ugav8l6nb4jb3uabo4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
