@@ -1,7 +1,9 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterlocationupdate/CustomButton.dart';
 import 'package:flutterlocationupdate/CustomTextSpan.dart';
+import 'package:flutterlocationupdate/DeviceUtils.dart';
 import 'package:flutterlocationupdate/colors.dart';
 import 'package:flutterlocationupdate/login/UserSignInRequestData.dart';
 import 'package:flutterlocationupdate/login/UserSignInResponseData.dart';
@@ -45,17 +47,28 @@ abstract class buttonClick {
 
 class LoginSelectionState extends State<LoginSelection> implements buttonClick {
 
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
   TextEditingController userEmailController = new TextEditingController();
   TextEditingController userPasswordController = new TextEditingController();
 
   String _userEmail, _userPassword;
 
+  String userToken;
   @override
   void initState() {
     super.initState();
+    firebaseCloudMessaging_Listeners();
   }
 
-  @override
+  void firebaseCloudMessaging_Listeners() {
+    _firebaseMessaging.getToken().then((token){
+      print(token);
+      userToken = token;
+    });
+  }
+
+    @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
@@ -147,8 +160,8 @@ class LoginSelectionState extends State<LoginSelection> implements buttonClick {
     print('buttonclick $_userEmail ___pass $_userPassword');
     if (type == "Login") {
       UserSignInRequestData userSignInRequestData = UserSignInRequestData(
-          deviceId: "fbbf8e3a3a846e18",
-          deviceToken: "eYpPct4VYbc:APA91bFPX5Em1T4Jrc78rKhJSrRK98CHHfNkda-oZkazBB-EpkdL2o6H_7L7oc9HXtoYNMdqaLthSpBWT8dDXlOIrJlaoMPyBK9X4GO-nl45qp5ujlC-SNWsE1TWdYH7NpedtEHPFfr4",
+          deviceId: await getDeviceId(context),
+          deviceToken:userToken,
           deviceType: 2,
           language: "1",
           password: _userPassword,
