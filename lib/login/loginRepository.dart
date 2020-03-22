@@ -12,6 +12,7 @@ Future<UserSignInResponseData> createPost(UserSignInRequestData userSignInReques
       },
       body: postToJson(userSignInRequestData)
   );
+  print('RESPONSE ${response.body}');
   return postFromJson(response.body);
 }
 

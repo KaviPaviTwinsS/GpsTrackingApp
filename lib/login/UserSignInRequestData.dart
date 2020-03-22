@@ -9,21 +9,34 @@ UserSignInResponseData postFromJson(String str) {
 
 String postToJson(UserSignInRequestData data) {
   final dyn = data.toJson();
+  print('POST to json ${json.encode(dyn)}');
   return json.encode(dyn);
 }
 
 class UserSignInRequestData {
-  String email;
+  String deviceId;
+  String deviceToken;
+  int deviceType;
+  String language;
   String password;
+  String email;
 
   UserSignInRequestData({
-    this.email,
+    this.deviceId,
+    this.deviceToken,
+    this.deviceType,
+    this.language,
     this.password,
+    this.email,
   });
 
 
   Map<String, dynamic> toJson() => {
-    "userEmail": email,
-    "userPassword": password,
+    "email": email,
+    "password": password,
+    "deviceId":deviceId,
+    "deviceToken" :deviceToken,
+    "deviceType":deviceType,
+    "language" :language,
   };
 }
