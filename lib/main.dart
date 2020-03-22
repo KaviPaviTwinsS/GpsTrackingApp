@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutterlocationupdate/LoginSelection.dart';
 import 'package:flutterlocationupdate/MyLocationUpdatePage.dart';
 
-void main() => runApp(MyLocationUpdatePage());
+void main() => runApp(LoginSelectionPage());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
