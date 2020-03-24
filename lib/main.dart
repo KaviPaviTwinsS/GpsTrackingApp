@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutterlocationupdate/LoginSelection.dart';
+import 'package:flutterlocationupdate/MyGooglePage.dart';
 import 'package:flutterlocationupdate/MyLocationUpdatePage.dart';
 
-void main() => runApp(LoginSelectionPage());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyGoogleMapPage(),
     );
   }
 }
