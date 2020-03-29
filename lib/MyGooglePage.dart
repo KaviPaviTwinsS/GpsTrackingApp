@@ -137,6 +137,7 @@ class MyGoogleMapPageState extends State<MyGoogleMapPage> {
               alignment: Alignment.topCenter,
               child: IconButton(icon: Icon(FontAwesomeIcons.discord,color: themeColor,), onPressed: (){
                setState(() {
+                 markerssss.clear();
                  _markers.clear();
                  _polygons.clear();
                  polygonPoints.clear();
@@ -196,7 +197,7 @@ class MyGoogleMapPageState extends State<MyGoogleMapPage> {
     print('POINT $point');
     setState(() {
       polygonPoints.add(point);
-      _markerPosition = point;
+//      _markerPosition = point;
     });
     print('polygonPoints ${polygonPoints.length}');
     if (polygonPoints.length > 2) {
@@ -213,24 +214,24 @@ class MyGoogleMapPageState extends State<MyGoogleMapPage> {
       draggable: true,
       onDragEnd: (value){
         setState(() {
-          print('onDragEnd $value _____${ss.position} _____ ${ss.markerId.value} ');
           for(int i=0 ;i<polygonPoints.length;i++){
+            print('onDragEnd $value _____${ss.position} _____ ${ss.markerId.value}______${polygonPoints[i]} ');
             if(ss.position == polygonPoints[i]){
-              print('onDragEnd_markerPosition $_markerPosition _____${polygonPoints[i]} ');
-              polygonPoints[i] = value;
+              print('onDragEnd_markerPosition  _____${polygonPoints[i]} ');
+//              polygonPoints[i] = value;
             }
           }
-      /*    for(int i=0 ;i<markerssss.length;i++){
-            if(_markerPosition == msss[i].position){
+          for(int i=0 ;i<markerssss.length;i++){
+            if(ss.position == markerssss[i].position){
 //              print('onDragEnd_markerssss ${markerssss[i].markerId.value} _____${markerssss[i].position} ');
               polygonPoints[i] = value;
             }
-            print('onDragEnd_markerssss ${markerssss[i].markerId.value} _____${markerssss[i].position} ');
+            print('onDragEnd_markerssss IDD ${markerssss[i].markerId.value} _____POSITOn ____${markerssss[i].position} ');
 
-          }*/
+          }
           setState(() {
 //              polygonPoints.add(value);
-              _markerPosition = value;
+//              _markerPosition = value;
           });
         });
       },
@@ -243,7 +244,7 @@ class MyGoogleMapPageState extends State<MyGoogleMapPage> {
         });
       },
       markerId: MarkerId(tappedMarkerPosition),
-      position: _markerPosition,
+      position: point,
       infoWindow: InfoWindow(
         title: 'I am a marker',
       ),
